@@ -6,6 +6,7 @@ public class PickUpController : MonoBehaviour
 {
     public int pickups;
     public GameObject pickup;
+    public GameObject pickUps;
     const float borderMax = 9.5f;
 
     // Start is called before the first frame update
@@ -14,7 +15,8 @@ public class PickUpController : MonoBehaviour
         pickups = Random.Range(6, 12);
         for (int i = 0; i < pickups; i++)
         {
-            Instantiate(pickup, new Vector3(Random.Range(-borderMax, borderMax), 0.5f, Random.Range(-borderMax, borderMax)), transform.rotation);
+            GameObject p = Instantiate(pickup, new Vector3(Random.Range(-borderMax, borderMax), 0.5f, Random.Range(-borderMax, borderMax)), transform.rotation);
+            p.transform.parent = pickUps.transform;
         }
     }
 
