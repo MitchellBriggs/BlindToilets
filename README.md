@@ -11,7 +11,7 @@
   
 **Other**
 - Pacifiying apps
-  - Simple, immersive activities that can help ease stress and anxiety, including for non-neurotypical 
+  - Simple, immersive activities that can help ease stress and anxiety, including for non-neurotypical users
 
 
 **Game Ideas**
