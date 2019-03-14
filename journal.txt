@@ -1,0 +1,87 @@
+WEEK 2 DAY 1 (25/2)
+
+UNITY: THE IGNOBLE BEGINNING
+
+In order to get comfortable with Unity as an IDE, I have started an online tutorial for "Roll A Ball", a simple
+game that demonstrates some features of Unity's native physics engine and touches on many of the ways that Unity
+can simplify the process of creating and shipping a game.
+
+Right now I'm about halfway through this tutorial, having created the basic playing field, finalized most of the
+player's behaviour, and created "collectable" objects that currently do nothing.
+
+
+WEEK 2 DAY 2 (28/2)
+
+TUTORIOWL
+
+Egads and hurrah! I have finished the tutorial, and even begun to implement some novel features. One such feature
+is severely reducing the player's mobility if they're ever in the air, to reflect how in real life being airborne
+makes it difficult to, for example, reverse the direction of your momentum and fly back on to a ramp that you've
+driven off. I did this by using the "tag" system and the OnCollisionExit and OnCollisionStay events native to Unity:
+the final solution was much simpler than I expected it to be, which is great.
+
+
+    private void OnCollisionStay(Collision other)
+    {
+	if (other.gameObject.CompareTag("Ramp"))
+        {
+            onGround = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ramp"))
+        {
+            onGround = false;
+        }
+    }
+
+    void FixedUpdate()
+    { ...
+
+        float airMultiplier = 1;
+    	if (!onGround) { airMultiplier = midairRedirectSpeed; }
+	rb.AddForce(force * speed * airMultiplier)
+
+      ... }
+
+I also started exporting builds of this game, both to my Windows machine and my Android phone. The text
+on the Android builds so far has been somewhat unpredictable: I hope to find some way to preview UIs
+as they will show up on Android devices, but this is made somewhat difficult by the range of dimensions
+that these devices can have.
+
+
+WEEK 3 DAY 1 (4/3)
+
+NEW OBJECTIVES
+
+I tragically forgot my phone cable today, so I spent most of this session changing the goal of the Roll A 
+Ball game completely. Instead of collecting 12 yellow cubes without any failure condition, I transformed 
+the playing field into a sort of maze that the player has to navigate in order to win. But this maze is not 
+without its hazards-- it features a bottomless pit, that will cause the player to lose if they foolishly
+roll their ball into it.
+
+
+WEEK 3 DAY 2 (7/3)
+
+I added some more polish to my newly mazeified Roll A Ball, including a better UI (including instructions
+that disappear upon keyboard input and a button to play again if the game is ended) and a way for me to easily
+toggle between "mobile mode" and "PC mode" (which require different methods to receive user input). As a
+group we also started testing out more AR-centric input schemes (rather than touch-based mobile input
+schemes), but I haven't implemented these yet.
+
+
+WEEK 4 DAY 1 (11/3)
+
+Today we looked at started to add filters and other mechanisms to impair the player's vision, so as
+to complete our primary goal of raising awareness about visual impairments. I was able to find and
+import a library for colourblindness filters with minimal complications, and then manually messed
+with Unity's various native forms of lighting to create a very unrealistic "blindness" mode. I
+implemented these in a separate "scene" (a direct clone of the original scene) with a reversed map.
+I tried, sort of half-heartedly, to devise a programmatic method of producing this reversed map, but
+my knowledge of Unity is not yet so advanced.
+
+
+WEEK 4 DAY 2 (14/3)
+
