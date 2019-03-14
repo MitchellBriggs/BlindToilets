@@ -10,8 +10,8 @@
   - Convert user vision into increasingly more impaired vision. Have different levels of blindness.
   
 **Other**
-- Drunk
-  - We could expand this app to include ideas such as drunk vision. 
+- Pacifiying apps
+  - Simple, immersive activities that can help ease stress and anxiety, including for non-neurotypical 
 
 
 **Game Ideas**
