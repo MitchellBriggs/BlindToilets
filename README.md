@@ -10,7 +10,7 @@
   - Convert user vision into increasingly more impaired vision. Have different levels of blindness.
   
 **Other**
-- Pacifiying apps
+- Pacifying apps
   - Simple, immersive activities that can help ease stress and anxiety, including for non-neurotypical users
 
 
