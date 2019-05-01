@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -44,10 +44,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 681, y: 494}
-  m_MaxSize: {x: 14002, y: 14044}
+  m_MinSize: {x: 683, y: 494}
+  m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 119
+  controlID: 123
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -831,10 +831,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8a9b0000
-      m_LastClickedID: 39818
-      m_ExpandedIDs: 8efbffff
+      scrollPos: {x: 0, y: 1745}
+      m_SelectedIDs: f2e90000
+      m_LastClickedID: 59890
+      m_ExpandedIDs: 8efbffffe0dc0000e2dc0000e4dc0000e6dc000062dd000094dd000096dd00009ee90000c0e90000f2e90000fce9000028ea0000aaed0000dced0000e6ed00000aee0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -894,9 +894,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 74.68004, y: 2.4311469, z: 41.158226}
+    m_Target: {x: 78.00931, y: 2.2180007, z: 45.591595}
     speed: 2
-    m_Value: {x: 74.68004, y: 2.4311469, z: 41.158226}
+    m_Value: {x: 78.00931, y: 2.2180007, z: 45.591595}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -925,13 +925,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.014188487, y: -0.73702717, z: 0.01547981, w: 0.6755422}
+    m_Target: {x: -0.0014998537, y: 0.01380484, z: -0.000020559753, w: -0.99991053}
     speed: 2
-    m_Value: {x: 0.014234811, y: -0.7349946, z: 0.015437119, w: 0.6777477}
+    m_Value: {x: -0.0029996315, y: 0.015304533, z: -0.00004576684, w: -0.99987847}
   m_Size:
-    m_Target: 3.085716
+    m_Target: 7.554955
     speed: 2
-    m_Value: 3.385716
+    m_Value: 7.229622
   m_Ortho:
     m_Target: 0
     speed: 2
