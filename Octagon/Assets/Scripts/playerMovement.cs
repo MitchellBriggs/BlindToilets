@@ -8,7 +8,7 @@ public class playerMovement : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 currentPosition;
     private bool startedMoving;
-    private const float SPEED = 0.01f;
+    private float speed;
 
     public Transform cam;
 
@@ -16,6 +16,7 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         startedMoving = false;
+        speed = 0;
     }
     // Update is called once per frame
     void Update()
@@ -27,6 +28,7 @@ public class playerMovement : MonoBehaviour
                 startPosition = GvrControllerInput.TouchPos;
                 currentPosition = GvrControllerInput.TouchPos;
                 startedMoving = true;
+                speed = 2;
             }
             else
             {
@@ -43,8 +45,13 @@ public class playerMovement : MonoBehaviour
                 float xdif = currentPosition.x - startPosition.x;
                 float zdif = startPosition.y - currentPosition.y;
                 
-                transform.position += (camF*zdif + camR*xdif)*Time.deltaTime*2;
+                transform.position += (camF*zdif + camR*xdif)*Time.deltaTime*speed;
             }
+        }
+        else
+        {
+            startedMoving = false;
+            speed = 0;
         }
     }
 }

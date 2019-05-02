@@ -44,7 +44,7 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 683, y: 494}
+  m_MinSize: {x: 681, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
   controlID: 123
@@ -93,8 +93,8 @@ MonoBehaviour:
     y: 0
     width: 380
     height: 551
-  m_MinSize: {x: 202, y: 222}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -216,7 +216,7 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 947
-  m_MinSize: {x: 406, y: 494}
+  m_MinSize: {x: 404, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
   controlID: 59
@@ -241,8 +241,8 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 551
-  m_MinSize: {x: 406, y: 222}
-  m_MaxSize: {x: 8006, y: 4022}
+  m_MinSize: {x: 404, y: 222}
+  m_MaxSize: {x: 8004, y: 4022}
   vertical: 0
   controlID: 60
 --- !u!114 &11
@@ -671,20 +671,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Mitchell Briggs\Desktop\School\Otago Polytechnic\3\Project\BlindToilets\Octagon
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d0990000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 0000000028310000823100003a9000000a97000018970000b49800006499000000ca9a3b
+    m_SelectedIDs: 062e0000
+    m_LastClickedID: 11782
+    m_ExpandedIDs: 00000000062e0000823100003a9000000a97000018970000b49800006499000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -831,10 +831,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 1745}
-      m_SelectedIDs: f2e90000
-      m_LastClickedID: 59890
-      m_ExpandedIDs: 8efbffffe0dc0000e2dc0000e4dc0000e6dc000062dd000094dd000096dd00009ee90000c0e90000f2e90000fce9000028ea0000aaed0000dced0000e6ed00000aee0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2699ffff4ecaffff8cfbffff8efbffffc49b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -894,9 +894,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 78.00931, y: 2.2180007, z: 45.591595}
+    m_Target: {x: 81.19097, y: -0.9438648, z: 39.583744}
     speed: 2
-    m_Value: {x: 78.00931, y: 2.2180007, z: 45.591595}
+    m_Value: {x: 81.19097, y: -0.9438648, z: 39.583744}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -925,13 +925,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.0014998537, y: 0.01380484, z: -0.000020559753, w: -0.99991053}
+    m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
-    m_Value: {x: -0.0029996315, y: 0.015304533, z: -0.00004576684, w: -0.99987847}
+    m_Value: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_Size:
-    m_Target: 7.554955
+    m_Target: 30.36696
     speed: 2
-    m_Value: 7.229622
+    m_Value: 29.059292
   m_Ortho:
     m_Target: 0
     speed: 2
