@@ -4,7 +4,7 @@ using System.Threading;
 using System;
 using UnityEngine;
 
-public class newDoorOpening : MonoBehaviour
+public class Rotation : MonoBehaviour
 {
     private DateTime lastOpen;
     private bool open;
@@ -12,6 +12,7 @@ public class newDoorOpening : MonoBehaviour
     private bool opening;
     private bool closing;
     private int count;
+    public int RotateTimes;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class newDoorOpening : MonoBehaviour
         }
         if (opening && !closing)
         {
-            if (count > 8)
+            if (count >= RotateTimes)
             {
                 count = 0;
                 opening = false;
@@ -51,7 +52,7 @@ public class newDoorOpening : MonoBehaviour
         }
         if (closing && !opening)
         {
-            if (count > 8)
+            if (count >= RotateTimes)
             {
                 count = 0;
                 closing = false;
