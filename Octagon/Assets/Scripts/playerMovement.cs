@@ -40,7 +40,6 @@ public class playerMovement : MonoBehaviour
                 camR.y = 0;
                 camF = camF.normalized;
                 camR = camR.normalized;
-                print(camF);
 
                 float xdif = currentPosition.x - startPosition.x;
                 float zdif = startPosition.y - currentPosition.y;
