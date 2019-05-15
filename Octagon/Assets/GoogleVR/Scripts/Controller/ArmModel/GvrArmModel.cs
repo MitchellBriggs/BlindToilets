@@ -550,6 +550,7 @@ public class GvrArmModel : GvrBaseArmModel, IGvrControllerInputDeviceReceiver
                                 -controllerRelativeToHead.normalized);
         float minDot = (tooltipMaxAngleFromCamera - 90.0f) / -90.0f;
         float distToFace = Vector3.Distance(controllerRelativeToHead, Vector3.zero);
+        /* 
         if (shouldFadeController
               || distToFace > tooltipMinDistanceFromFace
               || dot < minDot)
@@ -559,7 +560,16 @@ public class GvrArmModel : GvrBaseArmModel, IGvrControllerInputDeviceReceiver
         else
         {
             tooltipAlphaValue = Mathf.Min(1.0f, tooltipAlphaValue + animationDelta);
-        }
+        }*/
+    }
+
+    public void OnHover()
+    {
+        tooltipAlphaValue = 1.0f;
+    }
+    public void OnExit()
+    {
+        tooltipAlphaValue = 0.0f;
     }
 
     /// <summary>Get the controller's orientation.</summary>

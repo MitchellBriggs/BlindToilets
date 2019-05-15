@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System;
 using UnityEngine;
-
 public class Rotation : MonoBehaviour
 {
     private DateTime lastOpen;
@@ -78,13 +77,15 @@ public class Rotation : MonoBehaviour
         open = !open;
         lastOpen = DateTime.Now;
     }
-        
+            
     public void OnEnter()
     {
         hovering = true;
+        GameObject.Find("GvrControllerPointer").GetComponent<GvrArmModel>().OnHover();
     }
     public void OnExit()
     {
         hovering = false;
+        GameObject.Find("GvrControllerPointer").GetComponent<GvrArmModel>().OnExit();
     }
 }
