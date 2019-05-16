@@ -6,7 +6,7 @@ using UnityEngine;
 public class Rotation : MonoBehaviour
 {
     private DateTime lastOpen;
-    private bool open;
+    public bool open;
     private bool hovering;
     private bool opening;
     private bool closing;
