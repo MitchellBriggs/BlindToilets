@@ -7,7 +7,11 @@ public class playerMovement : MonoBehaviour
 {
     private Vector2 startPosition;
     private Vector2 currentPosition;
+    public GameObject Left;
+    public GameObject Right;
     private bool startedMoving;
+    private bool loadedLeft;
+    private bool loadedRight;
     private float speed;
 
     public Transform cam;
@@ -16,6 +20,8 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         startedMoving = false;
+        loadedLeft = false;
+        loadedRight = false;
         speed = 0;
     }
     // Update is called once per frame
@@ -52,5 +58,38 @@ public class playerMovement : MonoBehaviour
             startedMoving = false;
             speed = 0;
         }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("UnloadLeft"))
+        {
+            if(loadedLeft)
+            {
+                loadedLeft = false;
+            }
+        }
+        if (other.gameObject.CompareTag("UnloadRight"))
+        {
+            if(loadedRight)
+            {
+                loadedLeft = false;
+            }
+        }
+        if (other.gameObject.CompareTag("LoadLeft"))
+        {
+            if(!loadedLeft)
+            {
+                loadedLeft = true;
+            }
+        }
+        if (other.gameObject.CompareTag("LoadRight"))
+        {
+            if(!loadedRight)
+            {
+                loadedRight = true;
+            }
+        }
+        Left.SetActive(loadedLeft);
+        Right.SetActive(loadedRight);
     }
 }
