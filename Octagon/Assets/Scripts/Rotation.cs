@@ -29,11 +29,11 @@ public class Rotation : MonoBehaviour
         {
             if (lastOpen == null)
             {
-                Open();
+                Toggle();
             }
             else if (DateTime.Compare(DateTime.Now, lastOpen.AddMilliseconds(200)) > 0)
             {
-                Open();
+                Toggle();
             }
         }
         if (opening && !closing)
@@ -64,7 +64,7 @@ public class Rotation : MonoBehaviour
         }
     }
 
-    private void Open()
+    private void Toggle()
     {
         if (open)
         {
