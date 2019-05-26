@@ -44,10 +44,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 683, y: 344}
-  m_MaxSize: {x: 12008, y: 8044}
+  m_MinSize: {x: 683, y: 494}
+  m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 137
+  controlID: 130
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -119,15 +119,15 @@ MonoBehaviour:
     y: 620
     width: 1529
     height: 327
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 232, y: 272}
+  m_MaxSize: {x: 10002, y: 10022}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   - {fileID: 19}
   - {fileID: 12}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -216,8 +216,8 @@ MonoBehaviour:
     y: 0
     width: 1529
     height: 947
-  m_MinSize: {x: 406, y: 344}
-  m_MaxSize: {x: 8006, y: 8044}
+  m_MinSize: {x: 406, y: 494}
+  m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
   controlID: 70
 --- !u!114 &10
@@ -656,7 +656,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 693
-    width: 1531
+    width: 1529
     height: 308
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -671,20 +671,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Materials
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Mitchell Briggs\Desktop\School\Otago Polytechnic\3\Project\BlindToilets\Octagon
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b22e0000
-    m_LastClickedID: 11954
-    m_ExpandedIDs: 00000000b22e0000482f0000cc2f0000943100004432000008910000ce910000aa920000a293000018940000f29700000098000022980000a2990000549a0000689a0000889a000008d300000ad300000cd300000ed3000010d3000000ca9a3b
+    m_SelectedIDs: 22980000
+    m_LastClickedID: 38946
+    m_ExpandedIDs: 00000000b22e0000482f0000cc2f0000943100004432000008910000ce910000aa920000a293000018940000f29700000098000022980000a2990000549a0000689a0000889a000040d3000042d3000044d3000046d3000048d3000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -712,7 +712,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b22e0000482f0000cc2f0000943100004432000008910000ce910000aa920000a293000018940000f297000000980000a2990000549a0000689a0000889a000008d300000ad300000cd300000ed3000010d30000
+    m_ExpandedIDs: 00000000b22e0000482f0000cc2f0000943100004432000008910000ce910000aa920000a293000018940000f297000000980000a2990000549a0000689a0000889a000040d3000042d3000044d3000046d3000048d30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -832,9 +832,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 12a5ffff54a5ffff86a5ffff84a7ffff5efbffff729c0000a8a00000d0be00003cec0600
+      m_SelectedIDs: 3aad0000
+      m_LastClickedID: 44346
+      m_ExpandedIDs: 5efbffff3aad0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -894,9 +894,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 92.352844, y: 45.531887, z: -47.80271}
+    m_Target: {x: 93.07627, y: 38.5008, z: -43.599297}
     speed: 2
-    m_Value: {x: 92.352844, y: 45.531887, z: -47.80271}
+    m_Value: {x: 93.07627, y: 38.5008, z: -43.599297}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -925,13 +925,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.015925458, y: -0.84175974, z: 0.024707627, w: 0.5391309}
+    m_Target: {x: 0.27298233, y: -0.4914476, z: 0.16548961, w: 0.8103506}
     speed: 2
-    m_Value: {x: 0.015887698, y: -0.84253144, z: 0.024730429, w: 0.53784466}
+    m_Value: {x: 0.27296937, y: -0.4914243, z: 0.16548176, w: 0.81031215}
   m_Size:
-    m_Target: 6.2718406
+    m_Target: 0.73977154
     speed: 2
-    m_Value: 5.9718404
+    m_Value: 0.73977154
   m_Ortho:
     m_Target: 0
     speed: 2
