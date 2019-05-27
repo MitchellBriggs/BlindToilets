@@ -31,7 +31,7 @@ public class Rotation : MonoBehaviour
             {
                 Toggle();
             }
-            else if (DateTime.Compare(DateTime.Now, lastOpen.AddMilliseconds(200)) > 0)
+            else if (DateTime.Compare(DateTime.Now, lastOpen.AddMilliseconds(300)) > 0)
             {
                 Toggle();
             }
