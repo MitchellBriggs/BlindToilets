@@ -1,0 +1,2 @@
+Investigate new lights
+Continue working on hover effects
