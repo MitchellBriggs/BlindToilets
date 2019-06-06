@@ -1,2 +1,2 @@
-Investigate new lights
-Continue working on hover effects
+Text in 3D space
+White on Grey background
