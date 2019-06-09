@@ -6,37 +6,35 @@ using System;
 
 public class DisplayText : MonoBehaviour
 {
-    public string NewText;
-    public Text TextBox;
+    public GameObject canvas;
     private bool hovering;
-    private DateTime start;
-    private DateTime end;
+    private float hoverValue = 0.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        canvas.GetComponent<CanvasGroup>().alpha = hoverValue;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hovering)
+        if (hovering && hoverValue < 1.0f)
         {
-            if (DateTime.Compare(DateTime.Now, start.AddMilliseconds(1500)) > 0)
-            {
-                TextBox.text = NewText;
-                TextBox.enabled = true;
-            }
+            hoverValue += 0.05f;
         }
+        if (!hovering && hoverValue > 0.0f)
+        {
+            hoverValue -= 0.05f;
+        }
+        canvas.GetComponent<CanvasGroup>().alpha = hoverValue;
     }
     public void OnEnter()
     {
-        start = DateTime.Now;
         hovering = true;
     }
     public void OnExit()
     {
         hovering = false;
-        TextBox.enabled = false;
     }
 }
