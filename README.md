@@ -1,16 +1,22 @@
 # BlindToilets
 
 ## Scripts
-- Lights:
-The Lights script uses the GVR Controller, and a unity event trigger to activate/deactivate the Lights game object that is attached to the unity script. It also displays the “interactable” when the controller hovers over the button. This script could be used to turn game objects on and off, depending on when the user clicks on another game object in the application.
 - Water:
 The Water script is used to both make the water appear/disappear in sinks, and make the water rise/lower. It does this by, increasing the local size of the water in the sink (by the amount of SIZE), and then increasing the local height (by the amount of DISTANCE) of the game object. Then, when the user clicks on the tap a second time, the script does the inverse (decreasing the size by SIZE, and the height by DISTANCE).
-- OpenDoor (deprecated):
-The OpenDoor script was the original script to open and close doors. However, this just had them snapping back and forth between opened and closed. It was replaced by the Rotation script.
 - Rotation:
 The Rotation script is used to rotate the doors and taps in the model. It takes in a variable called RotateTimes, which is the number of times the object will rotate by 10 degrees around the Y-axis. Like the Lights script, it uses the GVR Controller, and a unity event trigger to run.
 - PlayerMovement:
 The Player Movement script is used to move the player around the scene, based on where they are looking, and where their finger moves on the touchpad. It does this by using the camera positions (ie where the user is looking). Then combining that with the relative distance between where the user started touching the touchpad, and then where they are now. The script also is used to deal with trigger management, between the user and triggers in the world. It does this by comparing what the user object is colliding with, to the tags on specific triggers. For example, in my project, I’ve used the triggers to load/unload the large objects in the model, which require a lot of polygons to create.
+- DisplayTest:
+The Display Text script is used to show visual text in 3D space. It modifies the canvas's alpha value (transparency) to make the text appear to fade in when hovered over, and fade out when not hovered over. It takes in a canvas that the text will appear on, however, the canvas requires a canvas group on it. This can be accessed under the "Text" prefab.
+- LightSwitch:
+The Light Switch script is an updated version of the Lights script. However, while it does all the same things as the Lights script, instead of handling turning the lights on and off, it calls the Light Toggle script's method Toggle.
+- LightToggle:
+The Light Toggle script is used solely to activate/deactivate the point light above the player.
+- OpenDoor (deprecated):
+The OpenDoor script was the original script to open and close doors. However, this just had them snapping back and forth between opened and closed. It was replaced by the Rotation script.
+- Lights (deprecated):
+The Lights script uses the GVR Controller, and a unity event trigger to activate/deactivate the Lights game object that is attached to the unity script. It also displays the “interactable” when the controller hovers over the button. This script could be used to turn game objects on and off, depending on when the user clicks on another game object in the application.
 
 ## Production
 This project requires an up-to-date version of unity to edit. It along with an Android SDK and a Java JDK, are required to install the project onto a mobile device. These can both be installed when updating unity to the latest version.
