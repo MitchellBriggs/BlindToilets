@@ -14,6 +14,7 @@ public class DisplayText : MonoBehaviour
     void Start()
     {
         canvas.GetComponent<CanvasGroup>().alpha = hoverValue;
+        hovering = false;
     }
 
     // Update is called once per frame
