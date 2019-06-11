@@ -17,7 +17,8 @@ ScriptsOnlyBuild:
     - GvrPointerPhysicsRaycaster
     - GvrTrackedController
     - InstantPreviewHelper
-    - Lights
+    - LightSwitch
+    - LightToggle
     - Rotation
     - Water
     - playerMovement
@@ -28,6 +29,7 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
@@ -83,53 +85,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9606}
     - Class: 114
+      Script: {instanceID: 9614}
+    - Class: 114
       Script: {instanceID: 9652}
     - Class: 114
       Script: {instanceID: 9744}
     - Class: 114
+      Script: {instanceID: 9758}
+    - Class: 114
       Script: {instanceID: 9862}
     - Class: 114
-      Script: {instanceID: 9908}
+      Script: {instanceID: 9874}
     - Class: 114
-      Script: {instanceID: 9922}
+      Script: {instanceID: 9910}
     - Class: 114
-      Script: {instanceID: 10094}
+      Script: {instanceID: 9924}
     - Class: 114
-      Script: {instanceID: 10100}
+      Script: {instanceID: 10102}
     - Class: 114
-      Script: {instanceID: 10296}
+      Script: {instanceID: 10298}
     - Class: 114
-      Script: {instanceID: 10364}
+      Script: {instanceID: 10366}
     - Class: 114
-      Script: {instanceID: 10518}
+      Script: {instanceID: 10520}
     - Class: 114
-      Script: {instanceID: 10524}
+      Script: {instanceID: 10526}
     - Class: 114
-      Script: {instanceID: 10542}
+      Script: {instanceID: 10544}
     - Class: 114
-      Script: {instanceID: 10652}
+      Script: {instanceID: 10654}
     - Class: 114
-      Script: {instanceID: 10656}
+      Script: {instanceID: 10658}
     - Class: 114
-      Script: {instanceID: 10778}
+      Script: {instanceID: 10780}
     - Class: 114
-      Script: {instanceID: 10792}
+      Script: {instanceID: 10794}
     - Class: 114
-      Script: {instanceID: 10886}
+      Script: {instanceID: 10888}
     - Class: 114
-      Script: {instanceID: 10908}
+      Script: {instanceID: 10910}
     - Class: 114
-      Script: {instanceID: 10964}
+      Script: {instanceID: 10966}
     - Class: 114
-      Script: {instanceID: 11144}
+      Script: {instanceID: 11142}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11148}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11514}
+      Script: {instanceID: 11454}
     - Class: 114
-      Script: {instanceID: 11540}
+      Script: {instanceID: 11518}
+    - Class: 114
+      Script: {instanceID: 11544}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -150,11 +158,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 205
       Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
       Script: {instanceID: 0}
     - Class: 226
       Script: {instanceID: 0}
@@ -767,6 +779,12 @@ ScriptsOnlyBuild:
     className: GvrArmModel
   - hash:
       serializedVersion: 2
+      Hash: 8e068bc7de73ef76385287ebf85a0fe6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LightToggle
+  - hash:
+      serializedVersion: 2
       Hash: e540a01426f9ad59088593bf72bcd255
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
@@ -1229,7 +1247,7 @@ ScriptsOnlyBuild:
     className: NetworkStartPosition
   - hash:
       serializedVersion: 2
-      Hash: 7ea83785c525dc6fb4a95fd3b35cdf05
+      Hash: d0adc65b6f54d204e5a5dc174eb9a803
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DisplayText
@@ -1533,6 +1551,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Effects
     className: SmokeParticles
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LightSwitch
   - hash:
       serializedVersion: 2
       Hash: 49dcb3939f87870ac10cf1f8fcdfb35e
