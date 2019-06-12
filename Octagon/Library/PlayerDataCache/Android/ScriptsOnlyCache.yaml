@@ -32,7 +32,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/scene.unity:
@@ -1788,4 +1787,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/scene.unity
-  playerPath: C:/Users/Mitchell Briggs/Desktop/project.apk
+  playerPath: C:/Users/brigmh1/Desktop/bettergame.apk
