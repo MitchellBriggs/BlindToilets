@@ -22,7 +22,7 @@ This script requires the prebuilt rigidbodycontroller prefab from the standard u
 - DisplayText:
 <p>The Display Text script is used to show visual text in 3D space. It modifies the canvas's alpha value (transparency) to make the text appear to fade in when hovered over, and fade out when not hovered over. It takes in a canvas that the text will appear on, however, the canvas requires a canvas group on it. This can be accessed under the "Text" prefab.
 
-![Image](images/PlayerMovement.png)
+![Image](images/DisplayText.png)
 
 The canvas gameobject that is canvas object which holds the backing panel, and the text that appears beside the question mark. Like the rotation script, this script requires the prebuilt event trigger, and a box collider (just to generate trigger responses).</p>
 - LightSwitch:
