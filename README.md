@@ -2,17 +2,41 @@
 
 ## Scripts
 - Water:
-The Water script is used to both make the water appear/disappear in sinks, and make the water rise/lower. It does this by, increasing the local size of the water in the sink (by the amount of SIZE), and then increasing the local height (by the amount of DISTANCE) of the game object. Then, when the user clicks on the tap a second time, the script does the inverse (decreasing the size by SIZE, and the height by DISTANCE).
+<p>The Water script is used to both make the water appear/disappear in sinks, and make the water rise/lower. It does this by, increasing the local size of the water in the sink (by the amount of SIZE), and then increasing the local height (by the amount of DISTANCE) of the game object. Then, when the user clicks on the tap a second time, the script does the inverse (decreasing the size by SIZE, and the height by DISTANCE).
+  
+![Image](images/Water.png)
+
+Where the the left tap object is the tap on the left of the sink. The right tap object is the tap on the right of the sink. The water objects is the water flowing from the tap. And the filling water object is the flat circle which raises and lowers.</p>
 - Rotation:
-The Rotation script is used to rotate the doors and taps in the model. It takes in a variable called RotateTimes, which is the number of times the object will rotate by 10 degrees around the Y-axis. Like the Lights script, it uses the GVR Controller, and a unity event trigger to run.
+<p>The Rotation script is used to rotate the doors and taps in the model. It takes in a variable called RotateTimes, which is the number of times the object will rotate by 10 degrees around the Y-axis. Like the Lights script, it uses the GVR Controller, and a unity event trigger to run.
+
+![Image](images/Rotation.png)
+
+This script requires a unity prebuilt event trigger. After this has been applied, you add in a pointer enter and exit trigger, press the little plus at the base, drop your object into the gameobject space, and then find the script and method in the right hand drop down box.</p>
 - PlayerMovement:
-The Player Movement script is used to move the player around the scene, based on where they are looking, and where their finger moves on the touchpad. It does this by using the camera positions (ie where the user is looking). Then combining that with the relative distance between where the user started touching the touchpad, and then where they are now. The script also is used to deal with trigger management, between the user and triggers in the world. It does this by comparing what the user object is colliding with, to the tags on specific triggers. For example, in my project, I’ve used the triggers to load/unload the large objects in the model, which require a lot of polygons to create.
+<p>The Player Movement script is used to move the player around the scene, based on where they are looking, and where their finger moves on the touchpad. It does this by using the camera positions (ie where the user is looking). Then combining that with the relative distance between where the user started touching the touchpad, and then where they are now. The script also is used to deal with trigger management, between the user and triggers in the world. It does this by comparing what the user object is colliding with, to the tags on specific triggers. For example, in my project, I’ve used the triggers to load/unload the large objects in the model, which require a lot of polygons to create.
+
+![Image](images/PlayerMovement.png)
+
+This script requires the prebuilt rigidbodycontroller prefab from the standard unity assest. I have gone through and remove the movement part of the controller, so that I could create my own using the GVRController. The gameobjects that the script contains are, the left and right objects, and the main camera. The left and right objects are used with the triggers on the model, to show/hide specific parts to reduce frame drops. In this case, it is the objects on the left side of the model, and the objects on the right. The main camera is used to modify where the user moves when they move their finger around on the touch pad.</p>
 - DisplayText:
-The Display Text script is used to show visual text in 3D space. It modifies the canvas's alpha value (transparency) to make the text appear to fade in when hovered over, and fade out when not hovered over. It takes in a canvas that the text will appear on, however, the canvas requires a canvas group on it. This can be accessed under the "Text" prefab.
+<p>The Display Text script is used to show visual text in 3D space. It modifies the canvas's alpha value (transparency) to make the text appear to fade in when hovered over, and fade out when not hovered over. It takes in a canvas that the text will appear on, however, the canvas requires a canvas group on it. This can be accessed under the "Text" prefab.
+
+![Image](images/PlayerMovement.png)
+
+The canvas gameobject that is canvas object which holds the backing panel, and the text that appears beside the question mark. Like the rotation script, this script requires the prebuilt event trigger, and a box collider (just to generate trigger responses).</p>
 - LightSwitch:
-The Light Switch script is an updated version of the Lights script. However, while it does all the same things as the Lights script, instead of handling turning the lights on and off, it calls the Light Toggle script's method Toggle.
+<p>The Light Switch script is an updated version of the Lights script. However, while it does all the same things as the Lights script, instead of handling turning the lights on and off, it calls the Light Toggle script's method Toggle.
+
+![Image](images/LightSwitch.png)
+
+The only thing this script requires is the prebuilt event trigger.</p>
 - LightToggle:
-The Light Toggle script is used solely to activate/deactivate the point light above the player.
+<p>The Light Toggle script is used solely to activate/deactivate the point light above the player.
+  
+![Image](images/LightToggle.png)
+
+This script just requires a reference to the point light that is above the player.</p>
 - OpenDoor (deprecated):
 The OpenDoor script was the original script to open and close doors. However, this just had them snapping back and forth between opened and closed. It was replaced by the Rotation script.
 - Lights (deprecated):
