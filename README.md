@@ -7,7 +7,7 @@ The Water script is used to both make the water appear/disappear in sinks, and m
 The Rotation script is used to rotate the doors and taps in the model. It takes in a variable called RotateTimes, which is the number of times the object will rotate by 10 degrees around the Y-axis. Like the Lights script, it uses the GVR Controller, and a unity event trigger to run.
 - PlayerMovement:
 The Player Movement script is used to move the player around the scene, based on where they are looking, and where their finger moves on the touchpad. It does this by using the camera positions (ie where the user is looking). Then combining that with the relative distance between where the user started touching the touchpad, and then where they are now. The script also is used to deal with trigger management, between the user and triggers in the world. It does this by comparing what the user object is colliding with, to the tags on specific triggers. For example, in my project, I’ve used the triggers to load/unload the large objects in the model, which require a lot of polygons to create.
-- DisplayTest:
+- DisplayText:
 The Display Text script is used to show visual text in 3D space. It modifies the canvas's alpha value (transparency) to make the text appear to fade in when hovered over, and fade out when not hovered over. It takes in a canvas that the text will appear on, however, the canvas requires a canvas group on it. This can be accessed under the "Text" prefab.
 - LightSwitch:
 The Light Switch script is an updated version of the Lights script. However, while it does all the same things as the Lights script, instead of handling turning the lights on and off, it calls the Light Toggle script's method Toggle.
