@@ -55,5 +55,4 @@ This program is designed to be run on a phone in a virtual reality environment, 
 If the user wishes to interact with parts of the model, all they have to do is hover the controller pointer over something in the model, and it will display “interactable” over the controller. This means that the player can interact with this part of the model by using the button with a ridge on it.
 
 ## To Do
-- Provide a description of things in the model when the user hovers them.
 - More performance increases.
