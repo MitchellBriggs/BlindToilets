@@ -12,7 +12,7 @@ Where the the left tap object is the tap on the left of the sink. The right tap 
 
 ![Image](images/Rotation.png)
 
-This script requires a unity prebuilt event trigger. After this has been applied, you add in a pointer enter and exit trigger, press the little plus at the base, drop your object into the gameobject space, and then find the script and method in the right hand drop down box.</p>
+This script requires a unity prebuilt event trigger. After this has been applied, you add in a pointer enter and exit trigger, press the little plus at the base, drop your object into the gameobject space, and then find the script and method in the right hand drop down box. To use the rotation script, add in a empty game object where you want the rotation to occur, attach the script to the game object, and then make all objects you want to rotate children of that gameobject.</p>
 - PlayerMovement:
 <p>The Player Movement script is used to move the player around the scene, based on where they are looking, and where their finger moves on the touchpad. It does this by using the camera positions (ie where the user is looking). Then combining that with the relative distance between where the user started touching the touchpad, and then where they are now. The script also is used to deal with trigger management, between the user and triggers in the world. It does this by comparing what the user object is colliding with, to the tags on specific triggers. For example, in my project, I’ve used the triggers to load/unload the large objects in the model, which require a lot of polygons to create.
 
