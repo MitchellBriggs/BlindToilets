@@ -1,0 +1,81 @@
+KAKA QUEST
+
+PURPOSE
+The overarching goal of this project is to raise local interest and engagement in Orokonui Ecosanctuary's
+kaka conservation efforts, and the survival of Otago's kaka enclave in general. To this end, this Kaka Quest
+application does several things.
+
+	INTERACTIVE STORY
+	This is a short, educational narrative "game" in which players try to guide a kaka to survival. It
+	serves to highlight the threats that kaka can face when they're in proximity of human settlements,
+	and to gently inform players of how they can make their homes and backyards safer for visiting kakas.
+
+	KAKA SIGHTING MAP
+	This is a simple interactive map of Dunedin. Users can report kaka sightings to a server, which are
+	saved for a limited time. This map also displays recent kaka sightings reported by other users.
+
+DEVELOPMENT
+This app is developed in C# via Unity, and is intended for smartphone use. It is recommended that you learn 
+how to use Unity first before working on this app, even if you are familiar with C#, because the Unity API
+and GUI take some getting used to if this is your first experience with a proper C# API.
+
+	INTERACTIVE STORY
+	Adding to this is mostly a matter of adding new Scenes. The project includes a prefab called
+	"GameInterface", which contains all the elements common to each "act" of the interactive story.
+	This is a brief rundown of each of these elements, and what information each one needs to work:
+	
+		Background: The primary background image of the Scene. Simply apply your desired image by
+		dragging it from the Assets/Images/Background folder and dropping it in the Source Image
+		variable space located in this element's Image (Script) component.
+
+		TextBox: Holds a Text element that gives the basic prompt for the act. This is mainly for
+		narrative purposes and hints. This can be moved around the screen at will: its anchor is its
+		center by default.
+
+			TextBox > Text: Text goes in the Text (Script) component.
+
+		Touch Screen: This is the component that picks up non-button press contact with the phone
+		screen. Try to avoid putting it over the button in the top left of the screen.
+
+			Touch Screen > Show Options: This can be used to control what text shows up in the
+			textbox, based on the index number of the Option selected in the previous scene.
+
+				ex. Scene A has Options 1 and 2. SAO2 was selected, so Scene B now displays
+				the second prompt in the List<string> Text Prompts.
+
+		btnMenu: A button that, by default, takes the user back to the MainMenu scene.
+
+		Options: Disabled by default (it gets enabled when the player touches the Touch Screen). This 
+		object populates itself with the choices that the player is given. It does this by means of a
+		public List<string> property that developers can manually add options to.
+
+			Options > Options: The List<string> of options. The index of the selected string, and
+			the value given to Next Scene Index, are both passed to the next scene via the
+			MasterFile script.
+
+			Next Scene Index: A string defining the next Scene to switch to once one of the options
+			is selected. Note that all Scenes should be placed in Assets/Scenes, and so all Scene
+			names should follow the format "Scenes/x", where x is the name of the .unity file that
+			holds the Scene.
+
+		GameInterface: The GameInterface object itself holds a couple of crucial things. First, it holds
+		a reference to the ChangeScene script, which all the buttons held in Options and btnMenu both
+		rely on. Second, it holds references to different background images, following similar rules to
+		the textbox options held by the Show Options (Script) component in Touch Screen.
+
+			ex. Scene A has Options 1 and 2. SAO2 was selected, so Scene B now displays the
+			second background image held by this GameInterface instance.
+
+	KAKA SIGHTING MAP
+	This map consists of two main components: a Map (stored in a modified instance of the GameInterface
+	prefab) and a Tracker. The Tracker basically handles all the calls to the Android API, then modifies
+	the Map's position based on the device's reported location.
+
+		Map: Doesn't have any fields to fill.
+
+		Tracker: The most important thing are the two points, Boundary TL and Boundary BR. These stand
+		for Top Left and Bottom Right, respectively, and between them represent the minimum and maximum
+		values of latitude and longitude that the map can display. 
+
+
+		

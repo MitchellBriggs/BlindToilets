@@ -1,0 +1,114 @@
+WEEK 2 DAY 1 (02/08)
+
+Today I set up the Vive, with help from assorted Project room randoms. It was an interesting experience.
+Though we experienced some minor setbacks, such as needing to switch PCs (the first computer we used had an
+insufficient graphics card) and the endless torment of trying to extract the Ethernet cable from an unused
+Project computer (which we wound up not even using-- there was a shorter, more accessible one among our
+allotted supplies), our success was as inevitable as it was total.
+
+
+WEEK 3 DAY 1 (05/08)
+
+Today we tried out some games on the Vive. The first one was a glitchy mess set in a maze inhabited by purple
+rabbits, creatively named "Labyrinth" and filled with what I can only assume were instructions written entirely
+in Chinese. This game had a really cool implementation of the teleport feature that I've heard many VR games use
+to effect movement, complete with cool arcs leading directly to the crosshairs, but did not seem to be programmed
+by someone with an adequate understanding of what walls are: attempting to teleport to a wall put the player halfway
+inside the wall, allowing them to freely access the other side of the wall.
+
+The other game was about Spiderman. The movement scheme for this game was more interesting: being based on
+Spiderman, instead of teleporting or walking, the player pressed a button to shoot webs that tethered them to
+objects in the game world, then another button to pull them towards the end of their web. While this was
+interesting, it was not particularly intuitive, and the instructions for getting it to work vanished nigh
+instantly and couldn't be pulled back up. Additionally, prolonged gameplay was vaguely nausea-inducing, mostly
+from the swinging motion while the player was swinging from place to place.
+
+
+WEEK 3 DAY 2 (08/08)
+
+Today I completed a <a href="https://www.raywenderlich.com/9189-htc-vive-tutorial-for-unity">tutorial</a> on 
+developing for VR devices. Essentially the key is to import the free SteamVR library from the Unity store, then
+know what I'm doing with all the assets it contains. The key asset is the CameraRig prefab, which holds child
+objects representing both controllers: it is this that serves as the gateway for the VR device's input signals
+into the VR application.
+
+I did run into a couple of problems while trying to follow this tutorial. First, the tutorial gave faulty
+instructions at one step: it advised deleting a number of "actions" from the default action set. (An action
+set is an extra layer of abstraction between the input received from the hardware, and the programming defined
+in Unity, that allows things like personalized keybinds and cross-platform compatibility between different
+VR devices).  One of the actions it said would be okay to delete was "pose"... but deleting this turned out
+to not be okay, and totally neutered all inputs from both controllers (though not the headset). Frustratingly, 
+it was hard to both pin down the problem (Googling the keywords and/or the error code returned a lot of results 
+with similar symptoms) and fix it-- simply recreating the Pose action in the default action set was not sufficient,
+and I ended up having to create an identical project (this time <em>not</em> deleting the Pose action) to get
+the controllers working again.
+
+Anyway, doing everything a second time did help make the process of applying VR to a project seem more simple and 
+approachable on like a visceral level, so it wasn't a complete loss. Just a pretty big loss.
+
+
+WEEK 4 DAY 1 (12/08)
+
+Today I worked on the setting of the VR game: a forest, based loosely on the natural Otago environment that kakas
+as a species are evolved to survive in. Since we'll only have the one location (at least in the current scope), it 
+means I can put extra work into making the world look better.
+
+I found a little tutorial that explained the concept of a Terrain object in Unity; this is a sort of pre-made 
+"ground" that can be randomly populated with objects designated as "trees" and certain inconsequential decor 
+(including grass and small stones) designated as "details". Right now, the trees are serviceable (I might revisit
+them later to fine-tune their coloration so as to better mimic Otago's natural trees), but the grass is problematic.
+Since it's based entirely on 2D sprites, it seems that Unity has automatically applied rotation code to make all
+grass sprites in view rotate in unison to face the main camera of the scene. This isn't so bad if the viewer
+keeps their head level (parallel to the ground), but as soon as they look down (perpendicular to the ground), the
+grass ends up pressed flat against the ground, which is not how grass works in real life<sup>[citation needed]</sup>.
+
+
+WEEK 4 DAY 2 (14/08)
+
+Today the two design students and I held a quorum regarding the VR situation, and tested out some more VR games. One
+game in particular, <a href="https://store.steampowered.com/app/629970/Beast_Pets/">"Beast Pets",</a> seemed to
+hit a lot of the same tonal and thematic beats that we're trying to achieve with KAKA QUEST, especially with minor
+things like the creatures' movement. There are some key differences, though: our main goal is to teach players
+<em>not</em> to interfere with kaka, and so we'll probably make most of the interaction happen at a distance (and
+have the kaka fly away if the player goes too close to them).
+
+The other stuff we tried wasn't all that inspiring. "The Blue" was a nice VR animation about watching a whale
+swim around under the sea, but it didn't have any interactivity or even programmed interactions between animals;
+it was just a short VR movie. "Fun VR Farm" was, despite its promising name, not actually much fun: it suffered from
+letting players switch between two different movement methods when one of those methods was vastly superior to the
+others-- though it was interesting that they were able to detect which position the touch-pad was clicked from,
+making the bindings for "move" and "switch movement option" the same goddamn button was almost as bad an idea as
+<em>having</em> a switch movement option button in the first place-- if you can do teleportation, there's no reason
+to even have the nauseating "slide" motion. I did give it a shot, thinking perhaps the sliding was for precise 
+micro-movements to slide the player into the perfect position, but the slide was still much harder to use for this 
+purpose than teleporting was.
+
+On the plus side, it did give me some ideas for how to make pathing work for the kaka; the animals in Fun VR Farm
+basically path endlessly towards specific ball-shaped controls that the player can pick up and carry (which allows
+them to compel the animals to follow them). I wonder if it would be possible to have other kaka temporarily hold
+similar (but invisible) objects to cause their fellow kaka to follow them, under certain circumstances.
+
+
+WEEK 4 DAY 3 (15/08)
+
+Today the name of game was walling off most of the forest (which is way too big and sand-boxy for a singleplayer
+experience centred entirely on learning how not to kill kaka) by limiting the teleportation to a specific region--
+a clearing I created solely for the player to exist in.
+
+While the teleportation implementation I was using (inherited from the tutorial I used last week) made it easy
+to introduce teleportable locations in theory, there were one or two snags. First, apparently the tutorial's method 
+requires "teleportable" objects to have Mesh Collider components for them to count. Though this makes sense in
+retrospect (the method involves drawing a line from the controller to the point on a teleportable object it's
+pointing at, and you'd need a mesh collider to detect individual points on an object's surface), it was not
+immediately obvious and took some trial-and-error (mostly comparing different native GameObjects to see which
+ones automatically worked with the teleport script) to work out.
+
+Once I had a relatively small teleportable region, I thought it might be nice for the player to visually be able to
+see their maximum range of travel while looking for valid locations to teleport to, so I added some extra lines
+to the teleportation code to display a white ring (a .png file I created in Photoshop) over the boundaries of the
+teleportable region whenever the player holds down the teleportation button. Though this strategy was quick and
+easy to implement (the only hiccup was that I forgot to assign my ring asset to the right variable at first), it
+does have the downside of being harder to scale-- if I wanted to add a new teleportable region of any size or shape
+to my game, I would have to manually create a new ring for it instead of just slapping it in. Fortunately, the
+scope of the game only calls for a single teleportable region, so for now I will be able to escape paying the
+piper for my sins.

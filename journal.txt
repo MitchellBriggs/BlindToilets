@@ -77,7 +77,7 @@ WEEK 4 DAY 1 (11/3)
 Today we looked at started to add filters and other mechanisms to impair the player's vision, so as
 to complete our primary goal of raising awareness about visual impairments. I was able to find and
 import a library for colourblindness filters with minimal complications, and then manually messed
-with Unity's various native forms of lighting to create a very unrealistic "blindness" mode. I
+with Unity's various native forms of lighting to create a (very unrealistic) "blindness" mode. I
 implemented these in a separate "scene" (a direct clone of the original scene) with a reversed map.
 I tried, sort of half-heartedly, to devise a programmatic method of producing this reversed map, but
 my knowledge of Unity is not yet so advanced.
@@ -85,6 +85,328 @@ my knowledge of Unity is not yet so advanced.
 
 WEEK 4 DAY 2 (14/3)
 
-MEETING WITH MARIE
+Grave news: our group has changed tracks, and structure. Instead of all three of us working on the same
+project, we have been split up into three different groups: James on the "Blindness" application,
+Mitchell on the "Toilets", and myself on a sort of virtual tourism application destined for Orokonui
+Ecosanctuary. In accordance with this new era, I've started to look at VR-centric control schemes for
+my Roll A Ball: today, I tried to implement a "look and move" scheme, where the ball's movement is directed
+entirely by the direction that the player is looking in.
 
+So far, it has not gone well. The main issue I recognized was that the player was prone to getting trapped: if they walked
+the ball into a dead end, it was basically impossible for the player to work their camera "behind" the ball and
+push the ball back out. There were other issues with translating the camera direction (a Vector3 object,
+representing a straight line in 3D space) into a Quaternion (a data type that the Unity docs explicitly describes
+as "not intuitively understandable") that I couldn't really iron out in these two hours, but these are
+less existentially dire than the control design issue I identified.
+
+
+WEEK 4 BONUS - COMMUNITY OUTREACH (15/3)
+
+Today I helped Hamish prepare computers destined for donation. We had to wipe their hard drives and install a
+Linux distribution on them. It was pretty simple, rote work, so there wasn't much to learn. We were slowed down
+by a clerical error (Hamish initially only left us one half of the instructions for the process-- we could set up
+the computers, but didn't really know what we were doing with the device meant to distribute the Linux to all the
+wiped computers), but once that was rectified it was pretty smooth sailing for us.
+
+
+WEEK 5 Day 1 (18/3)
+
+Today I tried to enhance my control scheme by moving the camera as the ball moves through the space. My main
+goal was to give the player the freedom to make choices at intersections and the ability to reverse
+their direction, but otherwise keep them from running the ball into a position where no movement is possible
+(unless it's an "official" trap that will swiftly end the game for them).
+
+This... didn't really work. I kept on running into issues with defining areas where the camera was supposed to switch
+directions. Initially I thought to use Unity's native tag system as a solution, the idea being that I could tag
+stretches of floor where I wanted the camera to point North, and stretches where it should point South, and so on.
+Unfortunately this caused lots of issues with the boundaries between stretches of floor (the camera kept rapidly flickering
+between the two directions, and this prevented the player from making much progress), and didn't solve the key
+issue of the player pinning themselves against walls.
+
+Then I tried a more programmatic approach, the basic idea being that the camera's direction would be moved based on
+the direction of the ball's movement. This was a little more successful, at least as far as preventing the flickering
+bug of the last strategy, but once again kept on pinning the player. It was also at this point that I unwittingly
+introduced a problematic bug that only let the ball go East or South, effectively reducing the player's range of
+movement to a single 90 degree slice.
+
+Overall, this was more of a "learning my limits" day than a "succeeding at anything" day.
+
+
+WEEK 5 Day 2 (21/3)
+
+I gave the VR control scheme/camera control for my Roll A Ball another go today. This time, my great brainwave
+was to combine one of my previous, unsuccessful control schemes with the Google Cardboard's single touch input: in
+addition to moving based on the camera's direction, the ball would only be able to move while the touch input
+was pressed down. In theory, this would allow the player to "pause" the ball and change their direction at their
+leisure, allowing them to escape from the dead-end traps that have plagued me for the last week and making the ball
+less suicidally responsive in the same stroke.
+
+Unfortunately, things did not shake out this way. Stopping and starting the ball did not really address the pinning
+issue: in all of my tests, I was unable to use it to avoid trapping myself before I even reached the first loss
+condition, much less the finish line.
+
+After figuring this out, I started looking at rotating the camera at the player's discretion, but couldn't
+figure out a satisfactory way to have both this input and the input for letting the player actually move.
+
+
+
+WEEK 6 Day 1 (25/3)
+
+Today I looked at creating VR environments. I followed a simple YouTube tutorial to get started: it covered
+creating a VR setting through use of Unity sphere GameObjects and a custom material with a 360 photo applied to
+it, emulating VR controls via the Google Daydream package for Unity, and interactive controls for players to
+interact with. I did run into an issue with the emulator responsible for "click" events in GoogleVR, but my
+hope is that this won't carry over to an actual Daydream-enabled device.
+
+
+
+WEEK 6 Day 2 (28/3)
+
+I played around with a camera object in a fresh Unity scene today. My goal was to produce something
+similar to the camera in the evolution sandbox game Spore, so that I could better understand how the Quaternion 
+objects used by Unity work. The way this camera works is that it can be clicked and dragged around a fixed point 
+in the centre of the screen, so that the player can view their creation from all angles (making it easier to edit).
+It can't be dragged so that it's beneath the floor, or directly above the creation so that it looks directly down
+on its centre.
+
+My starting point for this control scheme was the "Input.GetAxis()" method native to Unity, which (as you might have
+intuited) returns a 3D vector based on the mouse's current position. It can take a string as an argument, allowing
+developers to split the vector returned into X and Y components. This seemed to be the right port of call for my
+intentions, as I figured it could be used to somehow translate the movement of the mouse into movement of the camera
+object.
+
+The method for this translation seemed to be "Transform.RotateAround()" method, which takes three arguments-- the
+vector representing the point to rotate around, the vector representing the line around which the rotation
+should take place, and a float representing the angle of the rotation. This last float seemed like the proper
+place to insert the 
+
+
+WEEK 7 Day 1 (1/4)
+
+Today I worked more on my camera. I hit upon the idea of splitting the two axes of movement (up-down and
+left-right) so that it would be easier to think around the problem, and managed to come up with a very solid
+left-right click and dragging behaviour.
+
+
+
+WEEK 7 BONUS - Professional Development (2/4)
+
+Today I attended a seminar on security in an Information Technology context. The speaker, Otago's own Thomas
+[lastname], raised a number of points with the underlying theme of "The IT industry often forgets that
+the minimum requirement for security is *safety*". While some of the analogies he used and conclusions
+he reached didn't seem completely watertight, overall I do think his case was strong, and definitely worth 
+thinking about.
+
+I did think that one form of harm did go unrepresented here: Thomas covered a category that I'll refer to as
+"psychological assault", encompassing both shock videos like the livestream of the recent Christchurch shooting
+and targeted harassment from real-life contacts (an example being an abusive ex) intended to threaten and unsettle
+their recepients. This is of course a very important facet of the discussion at hand here, but I'm also wondering
+about the potential for bad actors using the same systems to spread misinformation. A great deal of harmful pseudoscience
+has sprung off the platforms provided by social media giants like Facebook and Youtube, and it's starting to have
+repercussions offline, like the revival of various easily vaccinated-against diseases by the "anti-vax" movement.
+One of the chief culprits seems to be these applications' machine learning algorithms: though they were created
+to serve a relatively innocuous purpose (helping users find the content most similar to the content they like best),
+this can produce dangerous results when that content is, itself, dangerous.
+
+While this might seem like more of a philosophical or even legal problem than a strictly technical one, it is
+a problem that has ramifications on the world of information technology-- what the lawmakers eventually decide is 
+appropriate to create will inevitably shape what we are allowed to create, in much the same way that architects are 
+no longer allowed to design buildings without adequate fire escape routes. It seems counterproductive to cite our 
+own inexperience and cut ourselves out of the discussion entirely.
+
+
+WEEK 8 Day 1 (8/4)
+
+Because my client was unable to make an appearance today, I went outside and took some pictures of the scenery in 
+order to fuel further explorations into VR. This time, I started trying to stitch a number of ordinary 2D images
+together into a coherent, realistic-seeming background.
+
+I think I sort of kneecapped myself with the photos I took. I couldn't get to a proper forest setting, so I settled for
+a sort of nook in the sportsground across the street from OP's D Block. The pictures didn't really fit together,
+and I didn't find any good trees to slot in over the seams. The picture of the grass underfoot doesn't really
+attach well to the grass at the bottom of the four "wall" pictures either, creating another set of seams that I
+have no good way of fixing. 
+
+
+WEEK 8 DAY 2 (11/4)
+
+Hooray! My client(s) finally appeared in the flesh today... well, kind of. They're more like middlemen to the
+actual client, Orokonui Ecosanctuary, which means that we still don't know exactly what product we're going to be
+working on. What we do know is that they're both design students with Otago Polytechnic in a postgraduate course,
+which means in theory we can make a solid team: the design students can produce assets and come up with UI schemes,
+and I can glue it all together in Unity or whatever program we need.
+
+
+WEEK 9 DAY 1 (29/4)
+
+After a two-week mid-semester break, I hopped right back into Unity. This time, I started working on a backup
+project after two weeks of silence from my clients-but-not-really. This project, rather than employing AR or VR,
+is instead a more traditional mobile game in a similar vein to games produced by Dunedin's own Runaway Games. Today I
+mostly worked on menus and navigation between scenes, which turned out to be quite simple-- just a single line of
+code in a single script. The hardest part was figuring out how to wire that script up to buttons!
+
+
+WEEK 9 DAY 2 (2/5)
+
+Today I was finally able to sit down with our clients from Orokonui and make some headway in understanding
+the exact qualities of the application I'm supposed to be creating. The main technical takeaway is that the
+application should be quite accessible: a solution that only works at Orokonui (like ones that involve Hololens or
+similar VR technology) could be great and immersive, but it'll only work on people who are already willing to
+go to Orokonui. After we finished with the clients, the Design folks and I talked some more about the direction
+we wanted to take this.
+
+The Orokonui people had several different, but interlinked, ideas for what our application could do. The core goal
+was given as "engaging the local community in Kaka conservation efforts", and we were able to come up with several
+possible implementations. The most exciting one, an app that shows in real time where tagged Kakas currently are
+in the Dunedin area, is also the least likely one to come to fruition: our contacts at Orokonui said that the
+earliest we can expect any headway on that technology is August, making it a less-than-ideal starting point. Another
+possible feature in a similar vein is a version of a web app that Orokonui already has for kias, which allows users
+to report kia sightings. This has the advantage of being actually possible for us right now, and creates a similar 
+"my gosh the kakas are all around me" feeling to the full-on tracker.
+
+Another, more education-oriented idea we had was creating a sort of interactive story, in which players must guide
+a kaka or family of kakas to survival. The idea is that this application would be able to teach people without seeming
+like it's preaching to them, by letting them discover for themselves what kind of things hurt kakas in the wild. It's
+this idea that I decided to start with: it has the lowest barrier to entry for me personally, and can be implemented
+both on mobile and online.
+
+
+WEEK 9 BONUS - COMMUNITY OUTREACH (3/5)
+
+Today I participated in the BIT's Age Concern program, and helped senior citizens figure out their technological
+problems. We only had one customer today, a gentleman who wanted to learn how to download a new browser, and had
+some questions about the security of online purchases and incognito mode.
+
+
+WEEK 10 DAY 1 (6/5)
+
+I worked some more on the tentatively named "KAKA QUEST" today. This time, I made a decision about the open-closed
+principle: did I want this application to be easier to add to but harder to customize, or easier to customize but
+harder to add to? In Unity terms, did I want to add new Scene objects for each "act" of the interactive story, or
+handle everything in a single scene that might be harder to change elements of later?
+
+I chose to err on the side of customizability: the Design students are still coming up with wacky ideas for
+design and story elements, so I'd like to be able to say yes to some of them without having to enormously redo
+how certain things work.
+
+
+WEEK 10 DAY 2 (9/5)
+
+With the "QUEST" about as done as it can be, until my Design minions figure out more about how they want to
+approach the narrative, I turned to the KAKA MAP idea that we had. We'd just done GPS functionality in Android,
+so I had some idea of how I was supposed to go about this, and I soon found that Unity had its own API for dealing
+with location too. It was mostly straightforward. My main worry at this juncture is how I can strike an
+efficient balance between accuracy of location and economy of data usage: if the rate of GPS requests is high, the
+device location will be more accurate, but this comes at the cost of, well, money (and battery life). I haven't yet
+looked into ways to regulate the rate of these requests: I know how to use coroutines, but I'm wondering if there
+is some more API-approved way to do this, like there is in the native Android API.
+
+
+WEEK 11 DAY 1 (13/5)
+
+Today was a good day. Continuing on the work of yesterday, I was able to get the map finally to display my device's 
+current location, opening the door to Kaka sighting reporting and sharing. The endgame plan is to have this 
+interface display the locations of actual Kaka being tracked by Orokonui itself, but that's still a theoretical 
+prospect until other parties working with Orokonui can finish their projects for actually tracking the Kaka. For 
+now, I'll be focusing on manually reported sightings.
+
+Figuring this out was mostly a matter of managing to link my phone to Unity for debugging purposes. There seems to
+be a bug in Unity Remote 5 that causes Unity Remote to fail to work if Unity is opened before the phone is connected
+to the computer. While ordinarily this wouldn't be much of a problem, my computer doesn't have GPS capabilities, so
+it was hard to test the values between passed in to the map offset. Eventually, thanks to some Google sleuthing, I 
+figured out how to get around the bug, and in a matter of minutes after that used trial and error to work out
+the maths needed to convert the latitude and longitude (rendered as percentages of the difference between the map's
+maximum and minimum values) into a Vector2 object to reposition the map object by.
+
+
+WEEK 11 DAY 2 (16/5)
+
+Today I switched to working on the Kaka website, which is intended to be an educational resource for people in a
+position to help prevent needless Kaka deaths. I decided to build it in Django, due to the relative ease of setting
+up a site and routes using it and the potential for expansion given by the MVC character of the framework-- for
+instance, Django offers in-built ways to save and authenticate user data, for if we decide to implement a forum or
+high scores at some point. There is also a wealth of information online about working with Django, including
+the Django developers' own docs.
+
+
+WEEK 12 DAY 1 (20/5)
+
+Worked some more on the Kaka website. The big choice today was adding Sass to the stack, to make changes to my
+CSS less agonising: I anticipate that I'll have to pull off two or three large overhauls of the site's design before
+this project is through, and I'm sure future devs will have to do the same.
+
+
+WEEK 12 DAY 2 (23/5)
+
+We visited Orokonui physically today, "we" being the two Design students, their supervisor Caro, and myself. Our
+initial goal was to secure some 360 degree footage for the sake of the VR experience we will eventually produce, but
+this became unfeasible when we discovered that we could not operate the 360 degree camera without a doctorate in
+astrophysics or something. However, after walking through Orokonui Ecosanctuary for an hour, hopefully an edifying
+experience for the design students, we eventually encountered our contact at Orokonui Amanda, who we hadn't been
+able to get in touch with for the last three weeks. Thanks to this stroke of good luck, we were able to show her
+my fledgling (bird pun) efforts to create a two-dimensional KAKA GAME. She seemed pleased with the direction of
+our work so far.
+
+
+WEEK 13 DAY 1 (27/5)
+
+Thanks to some insights from our glorious supervisor Adon, I was able to produce a very scaleable interactive game
+in Javascript for the Orokonui Kaka web app. The "trick" is that it uses a single JSON file to store all the
+information about each scenario: the prompt, the name of the associated image file, and most importantly the IDs of
+the scenarios each choice in the scenario leads to. 
+
+When I first had the idea of using a JSON object to store all of this data, I had trouble with actually extracting
+the data from the object. Initially I had every page stored in an array of JSON objects, each with its own unique
+ID value, but this made extracting an individual page overcomplicated: I would have had to query the whole array in
+search of a given ID, and then return all the values associated with that array. Adon suggested the simpler approach
+of using each page's ID as a key in an overarching JSON object, with every other aspect of the page going into the
+value tied to that key.
+
+OLD WAY
+{
+    "pages": [
+		{ "id" : "1a",
+		"choices": [ "Look around at the trees", "Look around at the animals" ],
+            	"prompt" : "...",
+            	"choice-ids": [ "2a", "2b" ]
+		},
+		...
+	]
+}
+
+NEW WAY
+{
+    "pages":{
+        "1a" : {
+            "choices": [ "Look around at the trees", "Look around at the animals" ],
+            "prompt" : "...",
+            "choice-ids": [ "2a", "2b" ]
+        },
+	...
+    }
+}
+
+This worked a lot more cleanly, especially when it came to passing ID strings to the prototype I put in charge
+of cutting relevant information out of the JSON file.
+
+WEEK 13 DAY 2 (30/5)
+
+We revisited Orokonui today, this time with a better understanding of how to operate the 360 degree camera and
+the addition of a Zoom^TM mic to our inventory. We were able to score about ten or so minutes of 360 degree
+footage, and similar amount in high-quality audio recordings. The main hurdle here will be transporting this footage 
+between devices: combined, the four 360 degree videos we have now take up 24.31GB of space between them, a little 
+much to be sending through Google Drive like the photos and text files we have been trading up until now. I 
+suggested a USB drive, though this of course is somewhat less convenient than Internet-based solutions, and for
+now this is what we'll be going with.
+
+
+WEEK 14 DAY 1 (6/6)
+
+Today I added some minor changes to the project's .sass file to make it responsive to mobile formats. Then,
+following some prompting from my supervisor, I looked into converting the Kaka web app into a progressive web app,
+or a web app that can be installed directly on a computer or phone and completely or partially accessed from
+offline, as opposed to being hosted directly on a server and therefore inaccessible without Internet access.
+
+
+WEEK 15 DAY 1 (10/6)
 
